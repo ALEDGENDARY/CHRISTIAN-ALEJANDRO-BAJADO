@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Alejandro - Welder Resume (A4 Wide)</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      background: #e5e7e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* EXACT A4 SIZE - PINALAWAK KONTI PARA MAS PROFESSIONAL */
+    .a4-paper {
+      width: 230mm; /* MEDYO PINALAWAK PARA HINDI MASIKIP */
+      min-height: 297mm;
+      height: auto;
+      background: white;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 8px;
+      page-break-after: avoid;
+      page-break-inside: avoid;
+    }
+
+    .resume-content {
+      padding: 15mm 15mm 12mm 15mm; /* DINAGDAGAN ANG SIDE MARGINS */
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: linear-gradient(135deg, #0a1c2f 0%, #1d334a 100%);
+      margin: -15mm -15mm 0 -15mm; /* IN-ADJUST PARA SA bagong padding */
+      padding: 15mm 15mm 12mm 15mm;
+      color: white;
+      display: flex;
+      gap: 30px;
+      border-bottom: 6px solid #f5821f;
+      align-items: center;
+    }
+
+    .profile-avatar {
+      width: 140px; /* MEDYO PINALAKI PA */
+      height: 140px;
+      background: #2b4a6e;
+      border-radius: 50%;
+      border: 5px solid #f5821f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: #ffad6b;
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .header-text {
+      flex: 1;
+    }
+
+    .header-text h1 {
+      font-size: 2.5rem; /* PINALAKI */
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      color: white;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      color: #f5821f;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .header-summary {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      opacity: 0.95;
+      margin-bottom: 15px;
+      max-width: 100%;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* CONTACT INFO */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 30px;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(3px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      margin-top: 8px;
+    }
+
+    .contact-row span {
+      color: white;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-row i {
+      color: #f5821f;
+      width: 24px;
+      margin-right: 10px;
+      font-size: 1.1rem;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
+
+    /* ===== TWO COLUMN - MAS MALAWA ANG GAP ===== */
+    .two-column {
+      display: flex;
+      gap: 35px; /* PINALAKI ANG GAP NG LEFT AT RIGHT */
+      margin-top: 25px;
+      flex: 1;
+    }
+
+    .left-col {
+      flex: 1.5; /* MEDYO PINALAKI ANG LEFT COLUMN */
+      min-width: 0;
+    }
+
+    .right-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0a1c2f;
+      margin: 25px 0 15px 0;
+      border-bottom: 3px solid #f5821f;
+      padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title i {
+      color: #f5821f;
+      font-size: 1.2rem;
+    }
+
+    .objective-box {
+      background: #f4f7fc;
+      padding: 18px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #1f3a57;
+      border-left: 5px solid #f5821f;
+      margin-bottom: 5px;
+    }
+
+    /* JOB ITEMS */
+    .job-item {
+      margin-bottom: 25px; /* DINAGDAGAN SPACING */
+    }
+
+    .job-head {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .job-date-left {
+      background: #f5821f;
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 5px 16px;
+      border-radius: 40px;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+      display: inline-block;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .job-title-company {
+      flex: 1;
+    }
+
+    .job-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0a1c2f;
+    }
+
+    .job-company {
+      color: #f5821f;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-left: 8px;
+    }
+
+    .job-bullets {
+      list-style: none;
+      margin-top: 8px;
+      margin-left: 138px; /* ADJUSTED PARA SA MAS MALAKING DATE BADGE */
+    }
+
+    .job-bullets li {
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.45;
+      color: #2c4058;
+    }
+
+    .job-bullets li::before {
+      content: "▹";
+      color: #f5821f;
+      position: absolute;
+      left: 0;
+      font-size: 1rem;
+    }
+
+    /* right column cards */
+    .skill-card {
+      background: #f4f7fc;
+      padding: 12px 16px;
+      border-radius: 40px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #0a1c2f;
+      border: 1px solid #d9e2ef;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s;
+    }
+
+    .skill-card i {
+      color: #f5821f;
+      width: 24px;
+      font-size: 1rem;
+    }
+
+    .cert-block, .edu-block {
+      background: white;
+      border: 1px solid #dde5f0;
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      border-left: 5px solid #f5821f;
+    }
+
+    .cert-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0a1c2f;
+    }
+
+    .cert-issuer {
+      font-size: 0.8rem;
+      color: #f5821f;
+      margin-top: 5px;
+    }
+
+    .edu-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0a1c2f;
+    }
+
+    .edu-details {
+      font-size: 0.8rem;
+      color: #4d627a;
+      margin-top: 5px;
+    }
+
+    .personal-box {
+      background: #f4f7fc;
+      border-radius: 14px;
+      padding: 15px 18px;
+      border: 1px solid #d5e0ef;
+    }
+
+    .personal-row {
+      display: flex;
+      padding: 8px 0;
+      border-bottom: 1px dashed #c0d0e5;
+      font-size: 0.9rem;
+    }
+
+    .personal-row:last-child {
+      border-bottom: none;
+    }
+
+    .personal-label {
+      font-weight: 700;
+      width: 90px;
+      color: #0a1c2f;
+    }
+
+    .personal-value {
+      color: #1f3f5c;
+    }
+
+    .footer {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #1f3a57;
+      border-top: 2px dashed #bdcfdf;
+      padding-top: 12px;
+      font-weight: 600;
+    }
+
+    .footer i {
+      color: #f5821f;
+      margin: 0 5px;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .a4-paper {
+        box-shadow: none;
+        border-radius: 0;
+        width: 210mm; /* return to standard A4 width for printing */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="a4-paper">
+    <div class="resume-content">
+      
+      <!-- HEADER -->
+      <div class="header">
+        <div class="profile-avatar">
+          <i class="fas fa-user-astronaut"></i>
+        </div>
+        <div class="header-text">
+          <h1>CHRISTIAN B. ALEJANDRO</h1>
+          <div class="header-title">Skilled Welder & Fabricator</div>
+          <div class="header-summary">
+            Skilled welder with 6+ years of experience in SMAW and fabrication seeking international opportunities. Proven ability to work with precision in industrial environments while maintaining strict safety standards.
+          </div>
+          
+          <!-- CONTACT INFO -->
+          <div class="contact-row">
+            <span><i class="far fa-envelope"></i> christianaledgebajado@gmail.com</span>
+            <span><i class="fas fa-phone-alt"></i> +63 935 751 8498</span>
+            <span><i class="fas fa-map-marker-alt"></i> Pasig City, Philippines</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TWO COLUMN -->
+      <div class="two-column">
+        
+        <!-- LEFT COLUMN -->
+        <div class="left-col">
+          
+          <!-- Professional Objective -->
+          <div class="section-title">
+            <i class="fas fa-bullseye"></i> Professional Objective
+          </div>
+          <div class="objective-box">
+            Highly skilled and certified welder with over 6 years of professional experience in Shielded Metal Arc Welding (SMAW), Gas Tungsten Arc Welding (GTAW), metal fabrication, and pipe fitting. Seeking international opportunities to apply expertise in precision welding, structural fabrication, and adherence to strict safety protocols. Proven ability to interpret blueprints and deliver high-quality metalwork in industrial environments.
+          </div>
+
+          <!-- WORK EXPERIENCE -->
+          <div class="section-title">
+            <i class="fas fa-briefcase"></i> Work Experience
+          </div>
+
+          <!-- Freelance 2023-2026 -->
+          <div class="job-item">
+            <div class="job-head">
+              <span class="job-date-left">2023 – 2026</span>
+              <div class="job-title-company">
+                <span class="job-title">Welder Fabricator / Contractor</span>
+                <span class="job-company">Freelance</span>
+              </div>
+            </div>
+            <ul class="job-bullets">
+              <li>Fabricated and installed custom metal works including grills, stairs, gates, canopies, railings, and loft beds</li>
+              <li>Interpreted blueprints and client instructions to deliver functional and aesthetic designs</li>
+              <li>Performed cutting, welding, fitting, and finishing of various steel structures</li>
+              <li>Ensured safety, accuracy, and quality in all projects</li>
+            </ul>
+          </div>
+
+          <!-- DMC1 2022-2023 -->
+          <div class="job-item">
+            <div class="job-head">
+              <span class="job-date-left">2022 – 2023</span>
+              <div class="job-title-company">
+                <span class="job-title">Welder</span>
+                <span class="job-company">DMC1</span>
+              </div>
+            </div>
+            <ul class="job-bullets">
+              <li>Operated welding equipment for metal components</li>
+              <li>Precisely cut materials using oxy-acetylene equipment</li>
+              <li>Maintained equipment and ensured safety compliance</li>
+            </ul>
+          </div>
+
+          <!-- Static Power 2020-2022 -->
+          <div class="job-item">
+            <div class="job-head">
+              <span class="job-date-left">2020 – 2022</span>
+              <div class="job-title-company">
+                <span class="job-title">Bus Duct Installer & Welder Fabricator</span>
+                <span class="job-company">Static Power Philippines, Inc.</span>
+              </div>
+            </div>
+            <ul class="job-bullets">
+              <li>Installed bus duct systems for power distribution</li>
+              <li>Performed welding for structural supports</li>
+              <li>Collaborated with electrical teams for integrated installations</li>
+            </ul>
+          </div>
+
+          <!-- TMCTT 2016-2018 -->
+          <div class="job-item">
+            <div class="job-head">
+              <span class="job-date-left">2016 – 2018</span>
+              <div class="job-title-company">
+                <span class="job-title">Pipe Fitter / Welder Fabricator</span>
+                <span class="job-company">TMCTT Tank and Tankers Co.</span>
+              </div>
+            </div>
+            <ul class="job-bullets">
+              <li>Fabricated and installed piping systems for Charge and Discharge Pump</li>
+              <li>Performed welding for structural supports and truck design</li>
+              <li>Ensured leak-proof installations and pressure testing</li>
+            </ul>
+          </div>
+        </div> <!-- end left col -->
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-col">
+          
+          <!-- Technical Skills - LAHAT MAY ICON NA, KASAMA NA ANG PIPE FITTING -->
+          <div class="section-title">
+            <i class="fas fa-tools"></i> Technical Skills
+          </div>
+          <div class="skill-card"><i class="fas fa-bolt"></i> SMAW Welding</div>
+          <div class="skill-card"><i class="fas fa-bolt"></i> GTAW Welding</div>
+          <div class="skill-card"><i class="fas fa-wrench"></i> Metal Fabrication</div>
+          <div class="skill-card"><i class="fas fa-pipe-valve"></i> Pipe Fitting</div> <!-- NANDIYAN NA PO! -->
+          <div class="skill-card"><i class="fas fa-charging-station"></i> Bus Duct Systems</div>
+          <div class="skill-card"><i class="fas fa-ruler-combined"></i> Blueprint Reading</div>
+          <div class="skill-card"><i class="fas fa-shield-alt"></i> Safety Compliance</div>
+          <div class="skill-card"><i class="fas fa-cogs"></i> Equipment Maintenance</div>
+
+          <!-- Certifications -->
+          <div class="section-title" style="margin-top: 25px;">
+            <i class="fas fa-certificate"></i> Certifications
+          </div>
+          <div class="cert-block">
+            <div class="cert-title">Shielded Metal Arc Welding (SMAW) NCII</div>
+            <div class="cert-issuer">TESDA Certified</div>
+          </div>
+          <div class="cert-block">
+            <div class="cert-title">Gas Tungsten Arc Welding (GTAW) NCII</div>
+            <div class="cert-issuer">TESDA Certified</div>
+          </div>
+
+          <!-- Education -->
+          <div class="section-title" style="margin-top: 25px;">
+            <i class="fas fa-graduation-cap"></i> Education
+          </div>
+          <div class="edu-block">
+            <div class="edu-name">Junior High School</div>
+            <div class="edu-details">Sta. Lucia High School, Pasig • 2012 – 2016</div>
+          </div>
+          <div class="edu-block">
+            <div class="edu-name">Elementary School</div>
+            <div class="edu-details">De Castro Elementary School • 2006 – 2012</div>
+          </div>
+
+          <!-- Personal Details -->
+          <div class="section-title" style="margin-top: 25px;">
+            <i class="fas fa-id-card"></i> Personal Details
+          </div>
+          <div class="personal-box">
+            <div class="personal-row"><span class="personal-label">Age:</span><span class="personal-value">26</span></div>
+            <div class="personal-row"><span class="personal-label">Height:</span><span class="personal-value">5'3" (160cm)</span></div>
+            <div class="personal-row"><span class="personal-label">Nationality:</span><span class="personal-value">Filipino</span></div>
+            <div class="personal-row"><span class="personal-label">Languages:</span><span class="personal-value">English, Filipino</span></div>
+          </div>
+        </div> <!-- end right col -->
+      </div> <!-- end two-column -->
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <i class="fas fa-welder"></i> Christian B. Alejandro • Welder & Fabricator • Available for International Opportunities <i class="fas fa-globe-asia"></i>
+      </div>
+
+    </div> <!-- end resume-content -->
+  </div> <!-- end a4-paper -->
+</body>
+</html>
